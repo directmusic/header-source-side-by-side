@@ -1,9 +1,10 @@
+var fs = require('fs');
 const path = require('path');
 const vscode = require('vscode');
 
 function get_file_and_folder_name(file) {
 	let parsed = path.parse(file);
-	return { folder: path.dirname(file), name: parsed.name, name_w_extension: parsed.name + parsed.ext }
+	return { dir: path.dirname(file), name: parsed.name, name_w_extension: parsed.name + parsed.ext }
 }
 
 /**
@@ -21,21 +22,37 @@ function activate(context) {
 		if (active_column > 2)
 			active_column = 1;
 
-		vscode.workspace.findFiles(ff.name + ".*", ff.name_w_extension).then(files => {
-			files.forEach(file => {
-				console.log(file.path);
-				vscode.workspace.openTextDocument(file.path).then(file => {
-					vscode.window.showTextDocument(file).then(fin => {
-						if (active_column == 2) {
-							vscode.commands.executeCommand('moveActiveEditor', { to: 'left', by: 'group' })
-						} else if (active_column == 1) {
-							vscode.commands.executeCommand('moveActiveEditor', { to: 'right', by: 'group' })
-						}
-					});
-				})
+		fs.readdir(ff.dir, function (err, files) {
+			if (err) {
+				return console.log('Unable to scan directory: ' + err);
+			}
+
+			let winners = [];
+
+			files.forEach(function (file) {
+				let split = file.split(".");
+				if (split.length < 1)
+					return;
+
+				let name = split[0];
+				let extension = split[split.length - 1];
+				if (name == ff.name && file != ff.name_w_extension) {
+					console.log("true " + file + " ff " + ff.name_w_extension);
+
+					// Open Editor
+					vscode.workspace.openTextDocument(ff.dir + "/" + file).then(file => {
+						vscode.window.showTextDocument(file).then(fin => {
+							if (active_column == 2) {
+								vscode.commands.executeCommand('moveActiveEditor', { to: 'left', by: 'group' })
+							} else if (active_column == 1) {
+								vscode.commands.executeCommand('moveActiveEditor', { to: 'right', by: 'group' })
+							}
+						});
+					})
+				}
+
 			});
 		});
-
 	});
 
 	context.subscriptions.push(disposable);
