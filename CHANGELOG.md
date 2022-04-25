@@ -1,9 +1,12 @@
 # Change Log
 
-All notable changes to the "header-source-side-by-side" extension will be documented in this file.
+#### 0.2.0 - 04/25/2022
+- Renamed `do` to `side-by-side`
+- Fixed glitchiness when swapping between two groups.
+- Added `switch_file_in_same_window` as an alternative to the C/C++ extension's Header/Implementation swap.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+#### 0.1.0 - 04/25/2022
+- Switched to Node's fs for speed and the ability to filter easier.
 
-## [Unreleased]
-
-- Initial release
+#### 0.0.1 - 04/25/2022
+- Initial release.
