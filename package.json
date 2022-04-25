@@ -7,7 +7,7 @@
 		"type": "git",
 		"url": "https://github.com/directmusic/header-source-side-by-side"
 	},
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
@@ -15,26 +15,41 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:header-source-side-by-side.do"
+		"onCommand:header-source-side-by-side.side-by-side",
+		"onCommand:header-source-side-by-side.switch_file_in_same_window"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "header-source-side-by-side.do",
+				"command": "header-source-side-by-side.side-by-side",
 				"title": "Split Header/Source horizontally."
+			},
+			{
+				"command": "header-source-side-by-side.switch_file_in_same_window",
+				"title": "Swap between Header/Source in same group."
 			}
 		],
 		"keybindings": [
 			{
-				"command": "header-source-side-by-side.do",
+				"command": "header-source-side-by-side.side-by-side",
 				"key": "ctrl+alt+shift+up",
 				"mac": "cmd+alt+ctrl+up"
 			},
 			{
-				"command": "header-source-side-by-side.do",
+				"command": "header-source-side-by-side.side-by-side",
 				"key": "ctrl+alt+shift+down",
 				"mac": "cmd+alt+ctrl+down"
+			},
+			{
+				"command": "header-source-side-by-side.switch_file_in_same_window",
+				"key": "ctrl+alt+up",
+				"mac": "cmd+ctrl+up"
+			},
+			{
+				"command": "header-source-side-by-side.switch_file_in_same_window",
+				"key": "ctrl+alt+down",
+				"mac": "cmd+ctrl+down"
 			}
 		]
 	},
