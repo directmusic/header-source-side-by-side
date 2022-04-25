@@ -1,5 +1,8 @@
 # Header/Source Side-By-Side
 
+[![View on Marketplace](https://vsmarketplacebadge.apphb.com/version/JosephLyncheski.header-source-side-by-side.svg
+)](https://marketplace.visualstudio.com/items?itemName=JosephLyncheski.header-source-side-by-side)
+
 Made by [Direct](https://twitter.com/directmusic) :)
 
 This extension will attempt to open a related file (myFile.cpp / myFile.h) in a tab group to the left and right. Running the command again will swap the cursor location from these two groups. This is similar to Xcode.
