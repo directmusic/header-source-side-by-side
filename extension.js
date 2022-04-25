@@ -41,6 +41,8 @@ function activate(context) {
 		});
 	});
 
+	// workbench.action.moveEditorToPreviousGroup
+
 	let side_by_side = vscode.commands.registerCommand('header-source-side-by-side.side-by-side', function () {
 		let current_open_docs = vscode.window.visibleTextEditors;
 		let active_doc = vscode.window.activeTextEditor;
@@ -85,19 +87,18 @@ function activate(context) {
 						}
 					}
 
-					// skip opening a new eidtor if we found one
+					// skip opening a new editor if we found one
 					if (found_visible_column_with_winning_file)
 						return;
 
 					// Open Editor
+					if (active_column == 2)
+						vscode.commands.executeCommand('workbench.action.focusFirstEditorGroup')
+					else if (active_column == 1)
+						vscode.commands.executeCommand('workbench.action.focusSecondEditorGroup')
+
 					vscode.workspace.openTextDocument(ff.dir + "/" + file).then(file => {
-						vscode.window.showTextDocument(file).then(fin => {
-							if (active_column == 2) {
-								vscode.commands.executeCommand('moveActiveEditor', { to: 'left', by: 'group' })
-							} else if (active_column == 1) {
-								vscode.commands.executeCommand('moveActiveEditor', { to: 'right', by: 'group' })
-							}
-						});
+						vscode.window.showTextDocument(file);
 					})
 				}
 

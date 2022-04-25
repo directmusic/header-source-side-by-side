@@ -1,7 +1,8 @@
 # Header/Source Side-By-Side
 
 [![View on Marketplace](https://vsmarketplacebadge.apphb.com/version/JosephLyncheski.header-source-side-by-side.svg
-)](https://marketplace.visualstudio.com/items?itemName=JosephLyncheski.header-source-side-by-side)
+)](https://marketplace.visualstudio.com/items?itemName=JosephLyncheski.header-source-side-by-side) ![Install banner](https://vsmarketplacebadge.apphb.com/installs/JosephLyncheski.header-source-side-by-side.svg
+)
 
 Made by [Direct](https://twitter.com/directmusic) :)
 
@@ -20,7 +21,10 @@ This extension contributes the following settings:
 
 ## Release Notes
 
-#### 0.2.0
+#### 0.2.1 - 04/26/2022
+- Further improved the glitchiness when first opening a new editor.
+
+#### 0.2.0 - 04/25/2022
 - Renamed `do` to `side-by-side`
 - Fixed glitchiness when swapping between two groups.
 - Added `switch_file_in_same_window` as an alternative to the C/C++ extension's Header/Implementation swap.
