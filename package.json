@@ -2,6 +2,10 @@
 	"name": "header-source-side-by-side",
 	"displayName": "Header/Source Side-By-Side",
 	"description": "Opens header & source in a split next to each other",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/directmusic/header-source-side-by-side"
+	},
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.66.0"
