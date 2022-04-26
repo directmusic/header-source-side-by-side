@@ -6,6 +6,8 @@
 
 Made by [Direct](https://twitter.com/directmusic) :)
 
+![Preview GIF](https://raw.githubusercontent.com/directmusic/header-source-side-by-side/main/assets/preview_gif.gif)
+
 This extension will attempt to open a related file (myFile.cpp / myFile.h) in a tab group to the left and right. Running the command again will swap the cursor location from these two groups. This is similar to Xcode.
 
 ## Features
