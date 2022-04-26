@@ -1,5 +1,8 @@
 # Change Log
 
+#### 0.2.2 - 04/26/2022
+- Fixed regression.
+
 #### 0.2.1 - 04/26/2022
 - Further improved the glitchiness when first opening a new editor.
 

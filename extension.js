@@ -66,6 +66,7 @@ function activate(context) {
 				let name = split[0];
 				let extension = split[split.length - 1];
 
+
 				if (name == ff.name && file != ff.name_w_extension) {
 					console.log("true " + file + " ff " + ff.name_w_extension);
 					let open_columns = vscode.window.visibleTextEditors;
@@ -79,9 +80,11 @@ function activate(context) {
 							if (i == active_column)
 								continue;
 							// we found a file in editor id (i) switch to (i) editor.
-							if (i == 1)
+							console.log(active_column);
+							console.log(i);
+							if (i < active_column)
 								vscode.commands.executeCommand('workbench.action.focusFirstEditorGroup')
-							else if (i == 2)
+							else if (i > active_column)
 								vscode.commands.executeCommand('workbench.action.focusSecondEditorGroup')
 							found_visible_column_with_winning_file = true;
 						}
